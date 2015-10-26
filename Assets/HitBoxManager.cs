@@ -40,9 +40,10 @@ public class HitBoxManager : MonoBehaviour {
 		localCollider.pathCount = 0; // Clear auto-generated polygons
 	}
 	
-	void OnTriggerEnter2D(Collider2D col)
+	void OnTriggerEnter2D(Collider2D collider)
 	{
 		Debug.Log("Collider hit something!");
+		GetComponentInParent<PlayerMovement> ().hit (collider);
 	}
 	
 	public void setHitBox(hitBoxes val)
@@ -52,6 +53,10 @@ public class HitBoxManager : MonoBehaviour {
 			localCollider.SetPath(0, colliders[(int)val].GetPath(0));
 			return;
 		}
+		localCollider.pathCount = 0;
+	}
+
+	public void clearHitBox() {
 		localCollider.pathCount = 0;
 	}
 }
