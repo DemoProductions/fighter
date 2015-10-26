@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		float x = 0.0f;
 		// don't move while kicking
-		if(!anim.GetCurrentAnimatorStateInfo(0).IsName("kick_right")) {
+		if(!anim.GetCurrentAnimatorStateInfo(0).IsName("kick")) {
 			x = Input.GetAxis ("Horizontal");
 		}
 
