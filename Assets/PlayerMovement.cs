@@ -30,26 +30,33 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		
-		//double jump delta. Should replace with bool to know if jump was released.
+		// double jump delta, used to stop double jump from happening too soon.
+		// Should replace with bool to know if jump key was released.
 		jumpdelta += Time.deltaTime;
 		if (!finished) {
 			time += Time.deltaTime;
 		}
 
-//		xvelocity = 0.0f;
-		// don't move while kicking
+		// Special Animation logic
+
+		// if thrown, ignore user input, velocity is away from the direction you are facing.
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("thrown")) {
 			if(right)
 				xvelocity = -1f;
 			else
 				xvelocity = 1f;
 		}
+		// if kicking, ignore user input, don't move
 		else if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
 			xvelocity = 0f;
-		} 
+		}
+		// else user input as normal (run and jump)
+		// Anything that must NOT happen in special animation, but should happen normally goes here
 		else {
 			xvelocity = Input.GetAxis ("Horizontal");
-			//remember last direction (when x = 0 it will leave in the previous state)
+
+			// save direction boolean
+			// remembers last direction (when x = 0 it will leave in the previous state)
 			if (xvelocity > 0) {
 				right = true;
 			}
@@ -57,12 +64,14 @@ public class PlayerMovement : MonoBehaviour {
 				right = false;
 			}
 
+			// if user is trying to kick, stop running, start kick animation.
 			if (Input.GetKeyDown (KeyCode.E)) {
 				anim.SetTrigger("kick");
-				anim.SetBool ("running", false);
 			}
-
-			anim.SetBool ("running", xvelocity != 0);
+			// else run, if necessary
+			else {
+				anim.SetBool ("running", xvelocity != 0);
+			}
 
 			//jump logic
 			if (jumpdelta > .2 && Input.GetAxis ("Vertical") > 0 && jumps < 2) {
@@ -74,7 +83,9 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 
-		//left right animation logic
+		// Things that always happen
+
+		// left/right animation logic
 		if (right) {
 			// Multiply the player's x local scale by -1
 			if ( transform.localScale.x < 0) {
@@ -91,16 +102,17 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 
-		//start character falling. Default falling felt bad. Not necessary.
+		// start character falling. Default falling felt bad. This is not necessary.
 		if (jumps > 0) {
 			yvelocity -= .05f;
 		}
 
-		//apply movement
+		// apply movement
 		GetComponent<Rigidbody2D>().velocity = new Vector2(xvelocity, yvelocity) * Time.deltaTime * speed;
 	}
 	
 	void OnCollisionEnter2D(Collision2D collision) {
+		// if on floor, stop falling and reset jumps
 		if (collision.collider.gameObject.name == "floor") {
 			jumps = 0;
 			yvelocity = 0;
@@ -112,6 +124,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionExit2D(Collision2D collision) {
+		// when leaving floor, jumps = 1. Might need adjustment.
 		if (collision.collider.gameObject.name == "floor") {
 			jumps = 1;
 		}
@@ -123,20 +136,20 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void hit(Collider2D collider) {
 		Debug.Log ("hit");
-		if (collider.gameObject.name == "player2") {
+		// we hit collider (argument), if it was a player, tell that player that it wasHit(right).
+		// right is direction boolean of the hitting player
+		// must be player2 specifically at the moment, if just doing "player" it triggers both boxes when one hits, not sure why yet
+		if (collider.gameObject.name.Contains("player2")) {
 			collider.gameObject.GetComponent<PlayerMovement>().wasHit (right);
-//			collider.gameObject.GetComponent<HitBoxManager>().clearHitBox();
 		}
 	}
-
+	
 	public void wasHit(bool right) {
 		Debug.Log ("was hit");
+		// set direction to face your attacker and play thrown animation
 		this.right = !right;
-		if (right) {
-			xvelocity = -1f;
-		} else {
-			xvelocity = 1f;
-		}
+		// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
+		// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
 		anim.Play ("thrown");
 	}
 }

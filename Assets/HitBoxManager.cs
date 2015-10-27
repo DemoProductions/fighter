@@ -42,7 +42,11 @@ public class HitBoxManager : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
+		// debug, trying to fix a bug
 		Debug.Log("Collider hit something!");
+		Debug.Log (collider.gameObject.name);
+		Debug.Log (this.gameObject.name);
+		Debug.Break ();
 		GetComponentInParent<PlayerMovement> ().hit (collider);
 	}
 	
