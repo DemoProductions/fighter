@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) {
-
+		Debug.Log ("test");
 	}
 
 	public void hit(Collider2D collider) {
