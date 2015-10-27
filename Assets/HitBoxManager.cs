@@ -42,11 +42,15 @@ public class HitBoxManager : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		// debug, trying to fix a bug
-		Debug.Log("Collider hit something!");
-		Debug.Log (this.gameObject.name + " hit " + collider.gameObject.name);
-		Debug.Break ();
-		GetComponentInParent<PlayerMovement> ().hit (collider);
+		string reaction; //debug var
+		// debug, loop, should simplify to simply the if statement and its function call
+		if (collider.gameObject.name.Contains ("player")) {
+			reaction = "hit";
+			GetComponentInParent<PlayerMovement> ().hit (collider);
+		} else {
+			reaction = "ignored";
+		}
+		Debug.Log (this.gameObject.name + " on " + this.transform.parent.name + " hit " + collider.gameObject.name + ": " + reaction);
 	}
 	
 	public void setHitBox(hitBoxes val)

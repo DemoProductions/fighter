@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	private float jumpdelta;
 	Animator anim;
 	public bool right;
+	public HitBoxManager hitboxmanager;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 		jumpdelta = 0;
 		anim = GetComponent<Animator>();
 		right = true;
+		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> ();
 	}
 	
 	// Update is called once per frame
@@ -131,21 +133,24 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) {
-		Debug.Log ("test");
+		
+	}
+
+	// pass through setHitBox to child hitbox's hitboxmanager script.
+	// this just allows the setHitBox function to be visible and usable by our player level animation, which cannot see the
+	// functions in the child element's script.
+	public void setHitBox(HitBoxManager.hitBoxes val) {
+		hitboxmanager.setHitBox (val);
 	}
 
 	public void hit(Collider2D collider) {
-		Debug.Log ("hit");
 		// we hit collider (argument), if it was a player, tell that player that it wasHit(right).
 		// right is direction boolean of the hitting player
 		// must be player2 specifically at the moment, if just doing "player" it triggers both boxes when one hits, not sure why yet
-		if (collider.gameObject.name.Contains("player2")) {
-			collider.gameObject.GetComponent<PlayerMovement>().wasHit (right);
-		}
+		collider.gameObject.GetComponent<PlayerMovement>().wasHit (right);
 	}
 	
 	public void wasHit(bool right) {
-		Debug.Log ("was hit");
 		// set direction to face your attacker and play thrown animation
 		this.right = !right;
 		// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
