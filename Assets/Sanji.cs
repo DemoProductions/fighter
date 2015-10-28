@@ -1,17 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sanji : MonoBehaviour, Character {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class Sanji : Character {
 
 	public void kick(GameObject collider, GameObject hitter) {
 		// here we would apply damage unique to Sanji's kick
@@ -20,4 +10,5 @@ public class Sanji : MonoBehaviour, Character {
 		// everything for now though.
 		collider.GetComponent<PlayerMovement>().wasThrown (hitter.transform.position.x - collider.transform.position.x);
 	}
+
 }
