@@ -17,9 +17,11 @@ public class PlayerMovement : MonoBehaviour {
 	public bool thrownright;
 	public HitBoxManager hitboxmanager;
 
+	public Character character;
+	
 	public string HORIZONTAL;
 	public string VERTICAL;
-	
+
 	// Use this for initialization
 	void Start () {
 		speed = 1200;
@@ -32,6 +34,9 @@ public class PlayerMovement : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		right = true;
 		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> ();
+
+		// THIS NEEDS TO BE PART OF PLAYER SPAWNER!!!! Hacky for now, as I branched from develop before player spawner ):
+		character = new Sanji (); 
 		thrown = false;
 	}
 
@@ -178,15 +183,23 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void hit(Collider2D collider) {
-		// we hit collider (argument), if it was a player, tell that player that it wasHit(right).
 		// right is direction boolean of the hitting player
-		// must be player2 specifically at the moment, if just doing "player" it triggers both boxes when one hits, not sure why yet
-		collider.gameObject.GetComponent<PlayerMovement>().wasHit (right);
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
+			character.kick (collider.gameObject, this.gameObject);
+		}
 	}
 	
-	public void wasHit(bool right) {
+	public void wasThrown(float direction) {
 		// set direction to face your attacker and play thrown animation
-		this.thrownright = !right;
+		if (direction > 0f) {
+			right = true;
+		}
+		else {
+			right = false;
+		}
+		// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
+		// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
+		anim.Play ("thrown");
 		thrown = true;
 	}
 }
