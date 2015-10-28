@@ -43,6 +43,11 @@ public class HitBoxManager : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		string reaction; //debug var
+		// ignore parent collisions
+		if (collider.gameObject.name == this.transform.parent.name) {
+			Debug.Log ("parent collision ignored");
+			return;
+		}
 		// debug, loop, should simplify to simply the if statement and its function call
 		if (collider.gameObject.name.Contains ("player")) {
 			reaction = "hit";
