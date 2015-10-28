@@ -192,10 +192,10 @@ public class PlayerMovement : MonoBehaviour {
 	public void wasThrown(float direction) {
 		// set direction to face your attacker and play thrown animation
 		if (direction > 0f) {
-			right = true;
+			thrownright = true;
 		}
 		else {
-			right = false;
+			thrownright = false;
 		}
 		// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
 		// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
