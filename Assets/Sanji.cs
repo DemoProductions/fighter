@@ -8,7 +8,11 @@ public class Sanji : Character {
 		// I think we should also apply the movement vector here for the collider, current implementation is actually quite bad
 		// as the collider sets its own direction, which has nothing to do with what hit it. Didn't want to go too far on changing
 		// everything for now though.
-		collider.GetComponent<PlayerMovement>().wasThrown (hitter.transform.position.x - collider.transform.position.x);
+		PlayerMovement player = collider.GetComponent<PlayerMovement> ();
+		float direction = hitter.transform.position.x - collider.transform.position.x;
+
+		player.knockbackVector = new Vector2 (direction > 0 ? -1 : 1, 1);
+		player.wasThrown (direction);
 	}
 
 }
