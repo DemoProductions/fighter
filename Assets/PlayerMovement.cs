@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool right;
 	public bool thrown;
 	public bool thrownright;
+	public Vector2 knockbackVector;
 	public HitBoxManager hitboxmanager;
 
 	public Character character;
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour {
 	public string LIGHT_ATTACK; // future kick
 	public string HEAVY_ATTACK; // current kick
 	public string DODGE;
+
+	public const float GRAVITY = -.05f;
 
 	// Use this for initialization
 	void Start () {
@@ -94,16 +97,16 @@ public class PlayerMovement : MonoBehaviour {
 			// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
 			anim.Play ("thrown");
 			thrown = false;
+			jumps = 1;
 		}
 
 		// Special Animation logic
 
 		// if thrown, ignore user input, velocity is away from the direction you are facing.
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("thrown")) {
-			if(right)
-				xvelocity = -1f;
-			else
-				xvelocity = 1f;
+			xvelocity = knockbackVector.x;
+			yvelocity = knockbackVector.y;
+			knockbackVector.y -= GRAVITY;
 		}
 		// if kicking, ignore user input, don't move
 		else if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
@@ -180,9 +183,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		// start character falling. Default falling felt bad. This is not necessary.
-		if (jumps > 0) {
-			yvelocity -= .05f;
-		}
+		yvelocity -= GRAVITY;
 
 		// apply movement
 		GetComponent<Rigidbody2D>().velocity = new Vector2(xvelocity, yvelocity) * Time.deltaTime * speed;
@@ -197,7 +198,9 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionStay2D(Collision2D collision) {
-		
+		if (jumps == 0) {
+			yvelocity = 0;
+		}
 	}
 	
 	void OnCollisionExit2D(Collision2D collision) {
@@ -227,7 +230,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	public void wasThrown(float direction) {
 		// set direction to face your attacker and play thrown animation
-		if (direction > 0f) {
+		if (direction > 0) {
 			thrownright = true;
 		}
 		else {
