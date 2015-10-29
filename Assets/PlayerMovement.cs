@@ -143,11 +143,6 @@ public class PlayerMovement : MonoBehaviour {
 				anim.SetBool ("running", xvelocity != 0);
 			}
 
-			// used for test purposes. player is damaged
-			if (Input.GetKeyDown (KeyCode.Q)) {
-				gameObject.GetComponent<Health>().Damage (10f);
-			}
-
 			//jump logic
 			if (jumpReleased && Input.GetAxis (VERTICAL) > 0 && jumps < 2) {
 				jumps++;
