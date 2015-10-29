@@ -5,7 +5,7 @@ public class HealthBar : MonoBehaviour {
 	public Vector2 pos = new Vector2(20, 40);
 	public Vector2 size = new Vector2(120, 20);
 	private float health; // full hp if health is 1 on the gui
-	private float maxHealth;
+	private int maxHealth;
 	private Texture2D emptyTex;
 	private Texture2D fullTex;
 
@@ -31,7 +31,7 @@ public class HealthBar : MonoBehaviour {
 	void Update() {
 		GameObject player = GameObject.Find ("player1");
 		if (player) {
-			health = player.GetComponent<Health> ().hp / maxHealth;
+			health = (float) player.GetComponent<Health> ().hp / (float) maxHealth;
 		} else { // player has no health points
 			health = 0;
 		}

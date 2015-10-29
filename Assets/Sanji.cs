@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Sanji : Character {
-	public float kickDmg = 10f; // all kicks deal the same dmg for now
+	public int kickDmg = 10; // all kicks deal the same dmg for now
 
 	public void kick(GameObject collider, GameObject hitter) {
 		// here we would apply damage unique to Sanji's kick
