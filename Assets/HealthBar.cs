@@ -10,7 +10,10 @@ public class HealthBar : MonoBehaviour {
 	private Texture2D fullTex;
 
 	void Start() {
-		GameObject player = GameObject.Find ("player");
+		// Only a healthbar for player1 for now, need to think of how to handle a healthbar
+		// for both players cleanly
+		GameObject player = GameObject.Find ("player1");
+		maxHealth = player.GetComponent<Health> ().hp;
 		if (player) {
 			maxHealth = player.GetComponent<Health>().hp;
 		}
@@ -26,7 +29,7 @@ public class HealthBar : MonoBehaviour {
 	}
 
 	void Update() {
-		GameObject player = GameObject.Find ("player");
+		GameObject player = GameObject.Find ("player1");
 		if (player) {
 			health = player.GetComponent<Health> ().hp / maxHealth;
 		} else { // player has no health points
