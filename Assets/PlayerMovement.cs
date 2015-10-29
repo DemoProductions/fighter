@@ -123,14 +123,22 @@ public class PlayerMovement : MonoBehaviour {
 				right = false;
 			}
 
-			// if user is trying to kick, stop running, start kick animation.
-			// replace with proper input?
+			// Check for input releases
+			if (Input.GetAxis (HEAVY_ATTACK) == 0){
+				heavyAttackReleased = true;
+			}
+			if (Input.GetAxis (LIGHT_ATTACK) == 0){
+				lightAttackReleased = true;
+			}
+			if (Input.GetAxis (DODGE) == 0){
+				dodgeReleased = true;
+			}
+
+			// User Input priority chain
+			// if trying heavy attack
 			if (heavyAttackReleased && Input.GetAxis (HEAVY_ATTACK) > 0) {
 				heavyAttackReleased = false;
 				anim.SetTrigger("kick");
-			}
-			else if (Input.GetAxis (HEAVY_ATTACK) == 0){
-				heavyAttackReleased = true;
 			}
 			// else run, if necessary
 			else {
