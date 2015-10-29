@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class HealthBar : MonoBehaviour {
-	public Vector2 pos = new Vector2 (20, 40); // positions may depend on the camera later on
+	public Vector2 pos = new Vector2(20, 40);
 	public Vector2 size = new Vector2(120, 20);
 	private float health; // full hp if health is 1 on the gui
 	private float maxHealth;
