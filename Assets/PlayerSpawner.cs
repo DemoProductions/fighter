@@ -11,8 +11,11 @@ public class PlayerSpawner : MonoBehaviour {
 		// also need to determine spawn positions x,y. Could just input to this script based on scene?
 		GameObject player1 = Instantiate (sanji, new Vector2 (3, -3), Quaternion.identity) as GameObject;
 		GameObject player2 = Instantiate (sanji, new Vector2 (-3, -3), Quaternion.identity) as GameObject;
+		// set player specific settings
 		player1.GetComponent<PlayerMovement>().setPlayer (1);
 		player2.GetComponent<PlayerMovement>().setPlayer (2);
+		player1.GetComponent<PlayerMovement> ().setCharacter (new Sanji ());
+		player2.GetComponent<PlayerMovement> ().setCharacter (new Sanji ());
 	}
 	
 	// Update is called once per frame

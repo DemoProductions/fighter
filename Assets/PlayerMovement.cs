@@ -33,10 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 		jumpdelta = 0;
 		anim = GetComponent<Animator>();
 		right = true;
-		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> ();
-
-		// THIS NEEDS TO BE PART OF PLAYER SPAWNER!!!! Hacky for now, as I branched from develop before player spawner ):
-		character = new Sanji (); 
+		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> (); 
 		thrown = false;
 	}
 
@@ -54,6 +51,11 @@ public class PlayerMovement : MonoBehaviour {
 			VERTICAL = "Vertical2";
 			break;
 		}
+	}
+
+	// set character
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 	
 	// Update is called once per frame
