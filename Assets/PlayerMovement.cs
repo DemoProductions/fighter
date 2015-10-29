@@ -19,8 +19,15 @@ public class PlayerMovement : MonoBehaviour {
 
 	public Character character;
 	
+	public bool lightAttackReleased;
+	public bool heavyAttackReleased;
+	public bool dodgeReleased;
+
 	public string HORIZONTAL;
 	public string VERTICAL;
+	public string LIGHT_ATTACK; // future kick
+	public string HEAVY_ATTACK; // current kick
+	public string DODGE;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +42,10 @@ public class PlayerMovement : MonoBehaviour {
 		right = true;
 		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> (); 
 		thrown = false;
+
+		heavyAttackReleased = true;
+		lightAttackReleased = true;
+		dodgeReleased = true;
 	}
 
 	// set player relevant information
@@ -44,11 +55,17 @@ public class PlayerMovement : MonoBehaviour {
 			gameObject.name = "player1";
 			HORIZONTAL = "Horizontal1";
 			VERTICAL = "Vertical1";
+			LIGHT_ATTACK = "LightAttack1";
+			HEAVY_ATTACK = "HeavyAttack1";
+			DODGE = "Dodge1";
 			break;
 		case 2:
 			gameObject.name = "player2";
 			HORIZONTAL = "Horizontal2";
 			VERTICAL = "Vertical2";
+			LIGHT_ATTACK = "LightAttack2";
+			HEAVY_ATTACK = "HeavyAttack2";
+			DODGE = "Dodge2";
 			break;
 		}
 	}
@@ -106,9 +123,21 @@ public class PlayerMovement : MonoBehaviour {
 				right = false;
 			}
 
-			// if user is trying to kick, stop running, start kick animation.
-			// replace with proper input?
-			if (Input.GetKeyDown (KeyCode.E)) {
+			// Check for input releases
+			if (Input.GetAxis (HEAVY_ATTACK) == 0){
+				heavyAttackReleased = true;
+			}
+			if (Input.GetAxis (LIGHT_ATTACK) == 0){
+				lightAttackReleased = true;
+			}
+			if (Input.GetAxis (DODGE) == 0){
+				dodgeReleased = true;
+			}
+
+			// User Input priority chain
+			// if trying heavy attack
+			if (heavyAttackReleased && Input.GetAxis (HEAVY_ATTACK) > 0) {
+				heavyAttackReleased = false;
 				anim.SetTrigger("kick");
 			}
 			// else run, if necessary
