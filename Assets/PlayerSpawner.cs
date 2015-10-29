@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerSpawner : MonoBehaviour {
 
 	public GameObject sanji;
+	public GameObject healthBar;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,8 @@ public class PlayerSpawner : MonoBehaviour {
 		player2.GetComponent<PlayerMovement>().setPlayer (2);
 		player1.GetComponent<PlayerMovement> ().setCharacter (new Sanji ());
 		player2.GetComponent<PlayerMovement> ().setCharacter (new Sanji ());
+
+		GameObject player1HealthBar = Instantiate (healthBar, new Vector2 (5, 5), Quaternion.identity) as GameObject;
 	}
 	
 	// Update is called once per frame
