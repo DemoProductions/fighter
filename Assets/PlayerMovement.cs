@@ -4,13 +4,11 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	public int speed;
-	public float time;
 	public bool finished;
 	public int jumps;
 	public float xvelocity;
 	public float yvelocity;
 	private float lastyvelocity;
-	private float jumpdelta;
 	Animator anim;
 	public bool right;
 	public bool thrown;
@@ -19,6 +17,8 @@ public class PlayerMovement : MonoBehaviour {
 	public HitBoxManager hitboxmanager;
 
 	public Character character;
+
+	public bool jumpReleased;
 	
 	public bool lightAttackReleased;
 	public bool heavyAttackReleased;
@@ -35,17 +35,15 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		speed = 1200;
-		time = 0;
 		finished = false;
 		jumps = 0;
 		xvelocity = 0;
 		yvelocity = 0;
-		jumpdelta = 0;
 		anim = GetComponent<Animator>();
 		right = true;
 		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> (); 
 		thrown = false;
-
+		jumpReleased = true;
 		heavyAttackReleased = true;
 		lightAttackReleased = true;
 		dodgeReleased = true;
@@ -80,13 +78,6 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
-		// double jump delta, used to stop double jump from happening too soon.
-		// Should replace with bool to know if jump key was released.
-		jumpdelta += Time.deltaTime;
-		if (!finished) {
-			time += Time.deltaTime;
-		}
 
 		// Hit logic. Delayed from actual hit to avoid adjusting the frame of the hit itself.
 		// After being hit, we will set hit or thrown to true (depending on hi strength), and play it now.
@@ -126,6 +117,14 @@ public class PlayerMovement : MonoBehaviour {
 				right = false;
 			}
 
+			if (Input.GetAxis(VERTICAL) == 0) {
+				jumpReleased = true;
+			}
+
+			// if user is trying to kick, stop running, start kick animation.
+			// replace with proper input?
+			if (Input.GetKeyDown (KeyCode.E)) {
+
 			// Check for input releases
 			if (Input.GetAxis (HEAVY_ATTACK) == 0){
 				heavyAttackReleased = true;
@@ -154,10 +153,10 @@ public class PlayerMovement : MonoBehaviour {
 			}
 
 			//jump logic
-			if (jumpdelta > .2 && Input.GetAxis (VERTICAL) > 0 && jumps < 2) {
+			if (jumpReleased && Input.GetAxis (VERTICAL) > 0 && jumps < 2) {
 				jumps++;
 				yvelocity = 1.5f;
-				jumpdelta = 0;
+				jumpReleased = false;
 			} else if (jumps > 0 && Input.GetAxis (VERTICAL) < 0) {
 				yvelocity -= .10f;
 			}
