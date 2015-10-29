@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	public string HEAVY_ATTACK; // current kick
 	public string DODGE;
 
-	public const float GRAVITY = -.05f;
+	public const float GRAVITY = .05f;
 
 	// Use this for initialization
 	void Start () {
@@ -120,10 +120,6 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetAxis(VERTICAL) == 0) {
 				jumpReleased = true;
 			}
-
-			// if user is trying to kick, stop running, start kick animation.
-			// replace with proper input?
-			if (Input.GetKeyDown (KeyCode.E)) {
 
 			// Check for input releases
 			if (Input.GetAxis (HEAVY_ATTACK) == 0){
