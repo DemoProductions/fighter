@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Health : MonoBehaviour {
-	public float hp = 100;
+	public int hp = 100;
 
-	public void Damage(float damage) {
+	public void Damage(int damage) {
 		hp -= damage;
 
 		if (hp <= 0) {

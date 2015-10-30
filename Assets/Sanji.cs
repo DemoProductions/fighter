@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Sanji : Character {
+	public int kickDmg = 10; // all kicks deal the same dmg for now
 
 	public void kick(GameObject collider, GameObject hitter) {
 		// here we would apply damage unique to Sanji's kick
@@ -13,6 +14,8 @@ public class Sanji : Character {
 
 		player.knockbackVector = new Vector2 (direction > 0 ? -1 : 1, 1);
 		player.wasThrown (direction);
+
+		collider.GetComponent<Health> ().Damage (kickDmg);
 	}
 
 }

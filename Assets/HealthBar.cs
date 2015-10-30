@@ -2,15 +2,18 @@
 using System.Collections;
 
 public class HealthBar : MonoBehaviour {
-	public Vector2 pos = new Vector2 (20, 40); // positions may depend on the camera later on
+	public Vector2 pos = new Vector2(20, 40);
 	public Vector2 size = new Vector2(120, 20);
 	private float health; // full hp if health is 1 on the gui
-	private float maxHealth;
+	private int maxHealth;
 	private Texture2D emptyTex;
 	private Texture2D fullTex;
 
 	void Start() {
-		GameObject player = GameObject.Find ("player");
+		// Only a healthbar for player1 for now, need to think of how to handle a healthbar
+		// for both players cleanly
+		GameObject player = GameObject.Find ("player1");
+		maxHealth = player.GetComponent<Health> ().hp;
 		if (player) {
 			maxHealth = player.GetComponent<Health>().hp;
 		}
@@ -26,9 +29,9 @@ public class HealthBar : MonoBehaviour {
 	}
 
 	void Update() {
-		GameObject player = GameObject.Find ("player");
+		GameObject player = GameObject.Find ("player1");
 		if (player) {
-			health = player.GetComponent<Health> ().hp / maxHealth;
+			health = (float) player.GetComponent<Health> ().hp / (float) maxHealth;
 		} else { // player has no health points
 			health = 0;
 		}
