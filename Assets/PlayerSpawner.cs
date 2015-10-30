@@ -18,9 +18,11 @@ public class PlayerSpawner : MonoBehaviour {
 		player1.GetComponent<PlayerMovement> ().setCharacter (new Sanji ());
 		player2.GetComponent<PlayerMovement> ().setCharacter (new Sanji ());
 
-		// These positions don't do anything for now. Some groundwork for having 2 healthbars
-		GameObject player1HealthBar = Instantiate (healthBar, new Vector2 (20, 40), Quaternion.identity) as GameObject;
-		GameObject player2HealthBar = Instantiate (healthBar, new Vector2 (40, 40), Quaternion.identity) as GameObject;
+		// Position vector stubs will be set depending on the player
+		GameObject player1HealthBar = Instantiate (healthBar, new Vector2 (0, 0), Quaternion.identity) as GameObject;
+		GameObject player2HealthBar = Instantiate (healthBar, new Vector2 (0, 0), Quaternion.identity) as GameObject;
+		player1HealthBar.GetComponent<HealthBar> ().setHealthBar (1);
+		player2HealthBar.GetComponent<HealthBar> ().setHealthBar (2);
 	}
 	
 	// Update is called once per frame
