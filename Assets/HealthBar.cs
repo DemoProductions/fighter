@@ -4,7 +4,7 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour {
 	private Vector2 pos;
-	public Vector2 size = new Vector2(120, 20);
+	private Vector2 size = new Vector2(120, 20);
 	private float health; // full hp if health is 1 on the gui
 	private int maxHealth;
 	private Texture2D emptyTex;
