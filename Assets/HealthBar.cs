@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 public class HealthBar : MonoBehaviour {
-	private Vector2 pos; // may want a way to have this field be public later on
+	private Vector2 pos;
 	public Vector2 size = new Vector2(120, 20);
 	private float health; // full hp if health is 1 on the gui
 	private int maxHealth;
@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour {
 
 	private string REFERENCE_PLAYER;
 
-	public void setHealthBar(int player) {
+	public void setHealthBar(int player, Vector2 playerHealthBarPos) {
 		switch (player) {
 		case 1:
 			gameObject.name = "player1_healthbar";
