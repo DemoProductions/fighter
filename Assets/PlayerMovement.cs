@@ -78,7 +78,6 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
 		// Hit logic. Delayed from actual hit to avoid adjusting the frame of the hit itself.
 		// After being hit, we will set hit or thrown to true (depending on hi strength), and play it now.
 		if (thrown) {
@@ -177,11 +176,15 @@ public class PlayerMovement : MonoBehaviour {
 
 		// apply movement
 		GetComponent<Rigidbody2D>().velocity = new Vector2(xvelocity, yvelocity) * Time.deltaTime * speed;
+
+		// raycast
+		Debug.DrawRay (transform.position, Vector2.down * 0.1f, Color.red);
 	}
 	
 	void OnCollisionEnter2D(Collision2D collision) {
-		// if on floor, stop falling and reset jumps
-		if (collision.collider.gameObject.name == "floor") {
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.down, 0.1f);
+		// if can jump on something
+		if (hit.collider != null) {
 			jumps = 0;
 			yvelocity = 0;
 		}
@@ -194,8 +197,9 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionExit2D(Collision2D collision) {
-		// when leaving floor, jumps = 1. Might need adjustment.
-		if (collision.collider.gameObject.name == "floor") {
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.down, 0.1f);
+		// if can jump on something
+		if (hit.collider != null) {
 			jumps = 1;
 		}
 	}
