@@ -179,7 +179,8 @@ public class PlayerMovement : MonoBehaviour {
 		// apply movement
 		GetComponent<Rigidbody2D>().velocity = new Vector2(xvelocity, yvelocity) * Time.deltaTime * speed;
 
-		// raycast
+		// if you want to see the raycast that determines whether this player can jump
+		// or not, turn on Gizmos in the game view
 		Debug.DrawRay (transform.position, Vector2.down * raycastJumpLength, Color.red);
 	}
 	
