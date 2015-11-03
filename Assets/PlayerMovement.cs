@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool thrownright;
 	public Vector2 knockbackVector;
 	public HitBoxManager hitboxmanager;
+	public HurtBoxManager hurtboxmanager;
 	public float raycastJumpLength;
 
 	public Character character;
@@ -44,7 +45,8 @@ public class PlayerMovement : MonoBehaviour {
 		if (right == null) {
 			right = true;
 		}
-		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> (); 
+		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> ();
+		hurtboxmanager = this.gameObject.GetComponentInChildren<HurtBoxManager> ();
 		raycastJumpLength = 0.1f;
 		thrown = false;
 		jumpReleased = true;
@@ -216,17 +218,29 @@ public class PlayerMovement : MonoBehaviour {
 	// pass through setHitBox to child hitbox's hitboxmanager script.
 	// this just allows the setHitBox function to be visible and usable by our player level animation, which cannot see the
 	// functions in the child element's script.
-	public void setHitBox(HitBoxManager.hitBoxes val) {
-		hitboxmanager.setHitBox (val);
+	public void clearHitbox() {
+		hitboxmanager.clearHitBox ();
+	}
+
+	public void setNeutralHeavyHitBox(HitBoxManager.frames val) {
+		hitboxmanager.setHitBox (HitBoxManager.types.neutral_heavy, val);
+	}
+
+	public void clearHurtbox() {
+		hurtboxmanager.clearHurtBox ();
+	}
+
+	public void setHurtBox(HurtBoxManager.hurtBoxes val) {
+		hurtboxmanager.setHurtBox (val);
 	}
 
 	public void hit(Collider2D collider) {
 		// right is direction boolean of the hitting player
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
-			character.kick (collider.gameObject, this.gameObject);
+			character.kick (collider.transform.parent.gameObject, this.gameObject);
 		}
 	}
-	
+
 	public void wasThrown(float direction) {
 		// set direction to face your attacker and play thrown animation
 		if (direction > 0) {

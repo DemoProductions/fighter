@@ -1,38 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HitBoxManager : MonoBehaviour {
 	
 	// Set these in the editor
-	public PolygonCollider2D kickframe1;
-	public PolygonCollider2D kickframe2;
-	public PolygonCollider2D kickframe3;
-	public PolygonCollider2D kickframe4;
-	public PolygonCollider2D kickframe5;
-	public PolygonCollider2D kickframe6;
-	
-	// Used for organization
-	private PolygonCollider2D[] colliders;
+	public PolygonCollider2D[] neutral;
+	public PolygonCollider2D[] neutralLight;
+	public PolygonCollider2D[] neutralHeavy;
 	
 	// Collider on this game object
 	private PolygonCollider2D localCollider;
 	
-	// We say box, but we're still using polygons.
-	public enum hitBoxes
+	public enum types
 	{
-		kickframe1Box,
-		kickframe2Box,
-		kickframe3Box,
-		kickframe4Box,
-		kickframe5Box,
-		kickframe6Box,
+		neutral,
+		neutral_light,
+		neutral_heavy,
 		clear // special case to remove all boxes
 	}
 	
+	// We say box, but we're still using polygons.
+	public enum frames
+	{
+		frame1,
+		frame2,
+		frame3,
+		frame4,
+		frame5,
+		frame6,
+		frame7,
+		frame8,
+		frame9,
+		frame10,
+		clear // special case to remove all boxes
+	}
+
 	void Start()
 	{
 		// Set up an array so our script can more easily set up the hit boxes
-		colliders = new PolygonCollider2D[]{kickframe1, kickframe2, kickframe3, kickframe4, kickframe5, kickframe6};
+//		colliders = new PolygonCollider2D[]{kickframe1, kickframe2, kickframe3, kickframe4, kickframe5, kickframe6};
 		
 		// Create a polygon collider
 		localCollider = gameObject.AddComponent<PolygonCollider2D>();
@@ -48,8 +55,9 @@ public class HitBoxManager : MonoBehaviour {
 			Debug.Log ("parent collision ignored");
 			return;
 		}
+
 		// debug, loop, should simplify to simply the if statement and its function call
-		if (collider.gameObject.name.Contains ("player")) {
+		if (collider.gameObject.name.Contains ("HurtBox") && collider.transform.parent.name != this.transform.parent.name) {
 			reaction = "hit";
 			GetComponentInParent<PlayerMovement> ().hit (collider);
 		} else {
@@ -58,11 +66,18 @@ public class HitBoxManager : MonoBehaviour {
 		Debug.Log (this.gameObject.name + " on " + this.transform.parent.name + " hit " + collider.gameObject.name + ": " + reaction);
 	}
 	
-	public void setHitBox(hitBoxes val)
+	public void setHitBox(types type, frames frame)
 	{
-		if(val != hitBoxes.clear)
+		if(frame != frames.clear)
 		{
-			localCollider.SetPath(0, colliders[(int)val].GetPath(0));
+			switch ((int)type){
+			case 2:
+				localCollider.SetPath(0, neutralHeavy[(int)frame].GetPath(0));
+				break;
+			default:
+				localCollider.SetPath(0, neutralHeavy[(int)frame].GetPath(0));
+				break;
+			}
 			return;
 		}
 		localCollider.pathCount = 0;
