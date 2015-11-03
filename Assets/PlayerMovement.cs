@@ -183,13 +183,17 @@ public class PlayerMovement : MonoBehaviour {
 
 		// if you want to see the raycast that determines whether this player can jump
 		// or not, turn on Gizmos in the game view
-		Debug.DrawRay (transform.position, Vector2.down * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down * raycastJumpLength, Color.red);
 	}
-	
+
 	void OnCollisionEnter2D(Collision2D collision) {
-		RaycastHit2D raycastJump = Physics2D.Raycast (transform.position, Vector2.down, raycastJumpLength);
+		RaycastHit2D raycastBottomMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		RaycastHit2D raycastBottomRight = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		RaycastHit2D raycastBottomLeft = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		// if the player can jump on something
-		if (raycastJump.collider != null) {
+		if (raycastBottomMiddle.collider != null || raycastBottomRight.collider != null || raycastBottomLeft.collider != null) {
 			jumps = 0;
 			yvelocity = 0;
 		}
@@ -202,9 +206,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionExit2D(Collision2D collision) {
-		RaycastHit2D raycastJump = Physics2D.Raycast (transform.position, Vector2.down, raycastJumpLength);
+		RaycastHit2D raycastBottomMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		RaycastHit2D raycastBottomRight = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		RaycastHit2D raycastBottomLeft = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		// if the player can jump on something
-		if (raycastJump.collider != null) {
+		if (raycastBottomMiddle.collider == null && raycastBottomRight.collider == null && raycastBottomLeft.collider == null) {
 			jumps = 1;
 		}
 	}
