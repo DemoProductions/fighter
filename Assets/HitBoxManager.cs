@@ -37,9 +37,6 @@ public class HitBoxManager : MonoBehaviour {
 
 	void Start()
 	{
-		// Set up an array so our script can more easily set up the hit boxes
-//		colliders = new PolygonCollider2D[]{kickframe1, kickframe2, kickframe3, kickframe4, kickframe5, kickframe6};
-		
 		// Create a polygon collider
 		localCollider = gameObject.AddComponent<PolygonCollider2D>();
 		localCollider.isTrigger = true; // Set as a trigger so it doesn't collide with our environment
