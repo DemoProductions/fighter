@@ -41,7 +41,9 @@ public class PlayerMovement : MonoBehaviour {
 		xvelocity = 0;
 		yvelocity = 0;
 		anim = GetComponent<Animator>();
-		right = true;
+		if (right == null) {
+			right = true;
+		}
 		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> (); 
 		raycastJumpLength = 0.1f;
 		thrown = false;
