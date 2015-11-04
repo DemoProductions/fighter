@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool thrownright;
 	public Vector2 knockbackVector;
 	public HitBoxManager hitboxmanager;
+	public HurtBoxManager hurtboxmanager;
 	public float raycastJumpLength;
 
 	public Character character;
@@ -44,7 +45,8 @@ public class PlayerMovement : MonoBehaviour {
 		if (right == null) {
 			right = true;
 		}
-		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> (); 
+		hitboxmanager = this.gameObject.GetComponentInChildren<HitBoxManager> ();
+		hurtboxmanager = this.gameObject.GetComponentInChildren<HurtBoxManager> ();
 		raycastJumpLength = 0.1f;
 		thrown = false;
 		jumpReleased = true;
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Hit logic. Delayed from actual hit to avoid adjusting the frame of the hit itself.
 		// After being hit, we will set hit or thrown to true (depending on hi strength), and play it now.
 		if (thrown) {
-			hitboxmanager.clearHitBox();
+			hitboxmanager.clear();
 			right = thrownright;
 			// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
 			// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
@@ -222,17 +224,53 @@ public class PlayerMovement : MonoBehaviour {
 	// pass through setHitBox to child hitbox's hitboxmanager script.
 	// this just allows the setHitBox function to be visible and usable by our player level animation, which cannot see the
 	// functions in the child element's script.
-	public void setHitBox(HitBoxManager.hitBoxes val) {
-		hitboxmanager.setHitBox (val);
+	public void clearHitbox() {
+		hitboxmanager.clear ();
+	}
+	
+	public void setIdleHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.idle, val);
+	}
+	
+	public void setRunHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.run, val);
+	}
+	
+	public void setNeutralHeavyHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.neutral_heavy, val);
+	}
+	
+	public void setNeutralLightHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.neutral_light, val);
+	}
+
+	public void clearHurtbox() {
+		hurtboxmanager.clear ();
+	}
+	
+	public void setIdleHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.idle, val);
+	}
+	
+	public void setRunHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.run, val);
+	}
+	
+	public void setNeutralHeavyHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.neutral_heavy, val);
+	}
+
+	public void setNeutralLightHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.neutral_light, val);
 	}
 
 	public void hit(Collider2D collider) {
 		// right is direction boolean of the hitting player
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
-			character.kick (collider.gameObject, this.gameObject);
+			character.kick (collider.transform.parent.gameObject, this.gameObject);
 		}
 	}
-	
+
 	public void wasThrown(float direction) {
 		// set direction to face your attacker and play thrown animation
 		if (direction > 0) {
