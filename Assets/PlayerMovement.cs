@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Hit logic. Delayed from actual hit to avoid adjusting the frame of the hit itself.
 		// After being hit, we will set hit or thrown to true (depending on hi strength), and play it now.
 		if (thrown) {
-			hitboxmanager.clearHitBox();
+			hitboxmanager.clear();
 			right = thrownright;
 			// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
 			// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
@@ -219,19 +219,43 @@ public class PlayerMovement : MonoBehaviour {
 	// this just allows the setHitBox function to be visible and usable by our player level animation, which cannot see the
 	// functions in the child element's script.
 	public void clearHitbox() {
-		hitboxmanager.clearHitBox ();
+		hitboxmanager.clear ();
 	}
-
-	public void setNeutralHeavyHitBox(HitBoxManager.frames val) {
-		hitboxmanager.setHitBox (HitBoxManager.types.neutral_heavy, val);
+	
+	public void setIdleHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.idle, val);
+	}
+	
+	public void setRunHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.run, val);
+	}
+	
+	public void setNeutralHeavyHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.neutral_heavy, val);
+	}
+	
+	public void setNeutralLightHitBox(ColliderManager.frames val) {
+		hitboxmanager.setCollider (ColliderManager.types.neutral_light, val);
 	}
 
 	public void clearHurtbox() {
-		hurtboxmanager.clearHurtBox ();
+		hurtboxmanager.clear ();
+	}
+	
+	public void setIdleHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.idle, val);
+	}
+	
+	public void setRunHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.run, val);
+	}
+	
+	public void setNeutralHeavyHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.neutral_heavy, val);
 	}
 
-	public void setHurtBox(HurtBoxManager.hurtBoxes val) {
-		hurtboxmanager.setHurtBox (val);
+	public void setNeutralLightHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.neutral_light, val);
 	}
 
 	public void hit(Collider2D collider) {

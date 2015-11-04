@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-public static class HitBoxList {
+public static class ColliderManagerList {
 	
 	public static void Show (SerializedProperty list) {
 		EditorGUILayout.PropertyField(list);
@@ -14,4 +14,5 @@ public static class HitBoxList {
 			}
 		}
 	}
+
 }
