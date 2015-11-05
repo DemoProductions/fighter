@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour {
 	public string HEAVY_ATTACK; // current kick
 	public string DODGE;
 
+	private const string NEUTRAL_HEAVY = "neutral_heavy";
+
 	public const float GRAVITY = .05f;
 
 	// Use this for initialization
@@ -105,7 +107,7 @@ public class PlayerMovement : MonoBehaviour {
 			knockbackVector.y -= GRAVITY;
 		}
 		// if kicking, ignore user input, don't move
-		else if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
+		else if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)) {
 			xvelocity = 0f;
 		}
 		// else user input as normal (run and jump)
@@ -141,7 +143,7 @@ public class PlayerMovement : MonoBehaviour {
 			// if trying heavy attack
 			if (heavyAttackReleased && Input.GetAxis (HEAVY_ATTACK) > 0) {
 				heavyAttackReleased = false;
-				anim.SetTrigger("kick");
+				anim.SetTrigger(NEUTRAL_HEAVY);
 			}
 			// else run, if necessary
 			else {
@@ -266,8 +268,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void hit(Collider2D collider) {
 		// right is direction boolean of the hitting player
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("kick")) {
-			character.kick (collider.transform.parent.gameObject, this.gameObject);
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)) {
+			character.neutralHeavy (collider.transform.parent.gameObject, this.gameObject);
 		}
 	}
 
