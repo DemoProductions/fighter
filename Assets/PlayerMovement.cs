@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public string HORIZONTAL;
 	public string VERTICAL;
-	public string LIGHT_ATTACK; // future kick
-	public string HEAVY_ATTACK; // current kick
+	public string LIGHT_ATTACK;
+	public string HEAVY_ATTACK;
 	public string DODGE;
 
 	private const string NEUTRAL_HEAVY = "neutral_heavy";
@@ -106,7 +106,6 @@ public class PlayerMovement : MonoBehaviour {
 			yvelocity = knockbackVector.y;
 			knockbackVector.y -= GRAVITY;
 		}
-		// if kicking, ignore user input, don't move
 		else if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)) {
 			xvelocity = 0f;
 		}
