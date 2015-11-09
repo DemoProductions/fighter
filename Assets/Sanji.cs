@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class Sanji : Character {
-	public int kickDmg = 10; // all kicks deal the same dmg for now
+	public int neutralHeavyDmg = 10;
 
-	public void kick(GameObject collider, GameObject hitter) {
-		// here we would apply damage unique to Sanji's kick
+	public void neutralHeavy(GameObject collider, GameObject hitter) {
 		// I think we should also apply the movement vector here for the collider, current implementation is actually quite bad
 		// as the collider sets its own direction, which has nothing to do with what hit it. Didn't want to go too far on changing
 		// everything for now though.
@@ -15,7 +14,7 @@ public class Sanji : Character {
 		player.knockbackVector = new Vector2 (direction > 0 ? -1 : 1, 1);
 		player.wasThrown (direction);
 
-		collider.GetComponent<Health> ().Damage (kickDmg);
+		collider.GetComponent<Health> ().Damage (neutralHeavyDmg);
 	}
 
 }
