@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerSpawner : MonoBehaviour {
 
 	public GameObject sanji;
+	public GameObject[] players = new GameObject[2];
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,10 @@ public class PlayerSpawner : MonoBehaviour {
 		player2.setCharacter (new Sanji ());
 		FaceCenter (player1);
 		FaceCenter (player2);
+		// add to camera
+		CameraMovement camera = GameObject.Find ("Main Camera").GetComponent<CameraMovement>();
+		players[0] = player1.gameObject;
+		players[1] = player2.gameObject;
 	}
 	
 	// Update is called once per frame
