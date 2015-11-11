@@ -55,13 +55,13 @@ public class ColliderManager : MonoBehaviour {
 		if(frame != frames.clear)
 		{
 			switch ((int)type){
-			case 0:
+			case (int)types.idle:
 				localCollider.SetPath(0, idle[(int)frame].GetPath(0));
 				break;
-			case 1:
+			case (int)types.run:
 				localCollider.SetPath(0, run[(int)frame].GetPath(0));
 				break;
-			case 2:
+			case (int)types.neutral_light:
 				localCollider.SetPath(0, neutralLight[(int)frame].GetPath(0));
 				break;
 			default:

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a8b29a44738134e528a53c0c8d1747a5
-timeCreated: 1446430906
+guid: 37c7b84dce2af4725a4ca7c848edf083
+timeCreated: 1447058004
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -18,6 +18,24 @@ TextureImporter:
     21300022: SanjiSpriteSheet_11
     21300024: SanjiSpriteSheet_12
     21300026: SanjiSpriteSheet_13
+    21300028: SanjiSpriteSheet_14
+    21300030: SanjiSpriteSheet_15
+    21300032: SanjiSpriteSheet_16
+    21300034: SanjiSpriteSheet_17
+    21300036: SanjiSpriteSheet_18
+    21300038: SanjiSpriteSheet_19
+    21300040: SanjiSpriteSheet_20
+    21300042: SanjiSpriteSheet_21
+    21300044: SanjiSpriteSheet_22
+    21300046: SanjiSpriteSheet_23
+    21300048: SanjiSpriteSheet_24
+    21300050: SanjiSpriteSheet_25
+    21300052: SanjiSpriteSheet_26
+    21300054: SanjiSpriteSheet_27
+    21300056: SanjiSpriteSheet_28
+    21300058: SanjiSpriteSheet_29
+    21300060: SanjiSpriteSheet_30
+    21300062: SanjiSpriteSheet_31
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -71,7 +89,7 @@ TextureImporter:
         width: 230
         height: 545
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_1
       rect:
@@ -81,7 +99,7 @@ TextureImporter:
         width: 278
         height: 532
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_2
       rect:
@@ -91,7 +109,7 @@ TextureImporter:
         width: 455
         height: 523
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_3
       rect:
@@ -101,7 +119,7 @@ TextureImporter:
         width: 496
         height: 582
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_4
       rect:
@@ -111,7 +129,7 @@ TextureImporter:
         width: 498
         height: 579
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_5
       rect:
@@ -121,7 +139,7 @@ TextureImporter:
         width: 385
         height: 498
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_6
       rect:
@@ -131,7 +149,7 @@ TextureImporter:
         width: 364
         height: 455
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_7
       rect:
@@ -141,7 +159,7 @@ TextureImporter:
         width: 483
         height: 373
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_8
       rect:
@@ -151,7 +169,7 @@ TextureImporter:
         width: 403
         height: 426
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_9
       rect:
@@ -161,7 +179,7 @@ TextureImporter:
         width: 256
         height: 446
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_10
       rect:
@@ -171,7 +189,7 @@ TextureImporter:
         width: 387
         height: 443
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_11
       rect:
@@ -181,7 +199,7 @@ TextureImporter:
         width: 515
         height: 386
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_12
       rect:
@@ -191,7 +209,7 @@ TextureImporter:
         width: 451
         height: 486
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SanjiSpriteSheet_13
       rect:
@@ -201,7 +219,147 @@ TextureImporter:
         width: 298
         height: 497
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 1884
+        width: 300
+        height: 407
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 1884
+        width: 348
+        height: 520
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 2649
+        y: 1888
+        width: 349
+        height: 516
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 2030
+        width: 435
+        height: 399
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1405
+        width: 425
+        height: 396
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1259
+        width: 293
+        height: 412
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1263
+        width: 314
+        height: 367
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 1259
+        width: 300
+        height: 407
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2682
+        y: 1259
+        width: 336
+        height: 547
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 3268
+        y: 1259
+        width: 361
+        height: 441
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 643
+        width: 380
+        height: 468
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 723
+        width: 505
+        height: 339
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 702
+        width: 419
+        height: 320
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SanjiSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 643
+        width: 561
+        height: 181
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
