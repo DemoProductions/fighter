@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	Animator anim;
 	public bool right;
 	public bool thrown;
-	public bool thrownright;
+	public bool thrownRight;
 	public Vector2 knockbackVector;
 	public HitBoxManager hitboxmanager;
 	public HurtBoxManager hurtboxmanager;
@@ -90,10 +90,9 @@ public class PlayerMovement : MonoBehaviour {
 		// After being hit, we will set hit or thrown to true (depending on hi strength), and play it now.
 		if (thrown) {
 			hitboxmanager.clear();
-			right = thrownright;
+			right = thrownRight;
 			// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
 			// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
-			anim.Play ("thrown");
 			thrown = false;
 			jumps = 1;
 		}
@@ -101,7 +100,8 @@ public class PlayerMovement : MonoBehaviour {
 		// Special Animation logic
 
 		// if thrown, ignore user input, velocity is away from the direction you are facing.
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("thrown")) {
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("thrown") 
+		    || anim.GetCurrentAnimatorStateInfo (0).IsName ("ko")) {
 			xvelocity = knockbackVector.x;
 			yvelocity = knockbackVector.y;
 			knockbackVector.y -= GRAVITY;
@@ -282,14 +282,24 @@ public class PlayerMovement : MonoBehaviour {
 	public void wasThrown(float direction) {
 		// set direction to face your attacker and play thrown animation
 		if (direction > 0) {
-			thrownright = true;
+			thrownRight = true;
 		}
 		else {
-			thrownright = false;
+			thrownRight = false;
 		}
 		// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
 		// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
 		anim.Play ("thrown");
 		thrown = true;
+	}
+
+	public void wasKo(float direction) {
+		if (direction > 0) {
+			thrownRight = true;
+		}
+		else {
+			thrownRight = false;
+		}
+		anim.Play ("ko");
 	}
 }
