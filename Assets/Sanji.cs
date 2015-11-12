@@ -11,10 +11,15 @@ public class Sanji : Character {
 		PlayerMovement player = collider.GetComponent<PlayerMovement> ();
 		float direction = hitter.transform.position.x - collider.transform.position.x;
 
+		Health colliderHealth = collider.GetComponent<Health> ();
+
+		colliderHealth.Damage (neutralHeavyDmg);
 		player.knockbackVector = new Vector2 (direction > 0 ? -1.5f : 1.5f, 1.5f);
-		player.wasThrown (direction);
 
-		collider.GetComponent<Health> ().Damage (neutralHeavyDmg);
+		if (colliderHealth.isKo()) {
+			player.wasKo(direction);
+		} else {
+			player.wasThrown (direction);
+		}
 	}
-
 }
