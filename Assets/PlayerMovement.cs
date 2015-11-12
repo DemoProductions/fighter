@@ -306,6 +306,6 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		anim.Play ("ko");
 
-		//gameOver.GetComponent<GameOver> ().enabled = true;
+		gameOver.GetComponent<GameOver> ().enabled = true;
 	}
 }
