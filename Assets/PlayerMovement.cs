@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public const float GRAVITY = .05f;
 
+	private GameObject gameOver;
+
 	// Use this for initialization
 	void Start () {
 		speed = 1200;
@@ -55,6 +57,8 @@ public class PlayerMovement : MonoBehaviour {
 		heavyAttackReleased = true;
 		lightAttackReleased = true;
 		dodgeReleased = true;
+
+		gameOver = GameObject.Find ("gameover");
 	}
 
 	// set player relevant information
@@ -301,5 +305,7 @@ public class PlayerMovement : MonoBehaviour {
 			thrownRight = false;
 		}
 		anim.Play ("ko");
+
+		//gameOver.GetComponent<GameOver> ().enabled = true;
 	}
 }
