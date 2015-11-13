@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour {
 	public HurtBoxManager hurtboxmanager;
 	public float raycastJumpLength;
 
+	private Health health;
+
 	public Character character;
 
 	public bool jumpReleased;
@@ -35,8 +37,6 @@ public class PlayerMovement : MonoBehaviour {
 	private const string NEUTRAL_HEAVY = "neutral_heavy";
 
 	public const float GRAVITY = .05f;
-
-	private GameObject gameOver;
 
 	// Use this for initialization
 	void Start () {
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour {
 		lightAttackReleased = true;
 		dodgeReleased = true;
 
-		gameOver = GameObject.Find ("gameover");
+		health = gameObject.GetComponent<Health> ();
 	}
 
 	// set player relevant information
@@ -229,7 +229,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.name == "deathbox") {
-			Destroy(this.gameObject);
+			Debug.Log (this.name + " hit deathbox");
+			health.setKo(true);
+			wasKoFromLedge();
 		}
 	}
 
@@ -305,7 +307,10 @@ public class PlayerMovement : MonoBehaviour {
 			thrownRight = false;
 		}
 		anim.Play ("ko");
+		GameObject.Find ("scene").GetComponent<Scene> ().decrementNumPlayers ();
+	}
 
-		gameOver.GetComponent<GameOver> ().enabled = true;
+	public void wasKoFromLedge() { // maybe we want a better name for this
+		GameObject.Find ("scene").GetComponent<Scene> ().decrementNumPlayers ();
 	}
 }

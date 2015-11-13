@@ -16,4 +16,8 @@ public class Health : MonoBehaviour {
 	public bool isKo() {
 		return ko;
 	}
+
+	public void setKo(bool x) {
+		ko = x;
+	}
 }
