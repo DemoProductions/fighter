@@ -2,12 +2,16 @@
 using System.Collections;
 
 public class Scene : MonoBehaviour {
-	public int numPlayers;
+	public GameObject[] players;
 	public GameObject gameOver;
+	public int numPlayers;
 
 	// Use this for initialization
 	void Start () {
-		numPlayers = 2; // for now there are always 2 players
+		PlayerSpawner playerSpawner = GameObject.Find ("PlayerSpawner").GetComponent<PlayerSpawner> ();
+		players = playerSpawner.players;
+
+		numPlayers = players.Length;
 
 		gameOver = GameObject.Find ("gameover");
 	}
