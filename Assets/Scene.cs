@@ -28,7 +28,8 @@ public class Scene : MonoBehaviour {
 		}
 	}
 
-	public void decrementNumPlayers() {
+	public void killPlayer(string playerName) {
 		numPlayers = numPlayers - 1;
+		GameObject.Find (playerName).gameObject.SetActive (false);
 	}
 }

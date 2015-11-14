@@ -307,10 +307,10 @@ public class PlayerMovement : MonoBehaviour {
 			thrownRight = false;
 		}
 		anim.Play ("ko");
-		GameObject.Find ("scene").GetComponent<Scene> ().decrementNumPlayers ();
+		GameObject.Find ("scene").GetComponent<Scene> ().killPlayer (this.name);
 	}
 
 	public void wasKoFromLedge() { // maybe we want a better name for this
-		GameObject.Find ("scene").GetComponent<Scene> ().decrementNumPlayers ();
+		GameObject.Find ("scene").GetComponent<Scene> ().killPlayer (this.name);
 	}
 }
