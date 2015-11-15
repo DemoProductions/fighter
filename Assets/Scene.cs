@@ -2,10 +2,18 @@
 using System.Collections;
 
 public class Scene : MonoBehaviour {
+	public GameObject[] players;
+	public GameObject gameOver;
+	public int numPlayers;
 
 	// Use this for initialization
 	void Start () {
-	
+		PlayerSpawner playerSpawner = GameObject.Find ("PlayerSpawner").GetComponent<PlayerSpawner> ();
+		players = playerSpawner.players;
+
+		numPlayers = players.Length;
+
+		gameOver = GameObject.Find ("gameover");
 	}
 	
 	// Update is called once per frame
@@ -14,5 +22,18 @@ public class Scene : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.F1)) {
 			Application.LoadLevel ("testscene");
 		}
+
+		if (numPlayers <= 1) { // may have to tweak this for draws
+			gameOver.GetComponent<GameOver> ().enabled = true;
+		}
+	}
+
+	public void koPlayer() {
+		numPlayers = numPlayers - 1;
+	}
+
+	public void deactivatePlayer(string playerName) {
+		numPlayers = numPlayers - 1;
+		GameObject.Find (playerName).gameObject.SetActive (false);
 	}
 }
