@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		else if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)
 		         || anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_LIGHT)) {
-			xvelocity = 0f;
+			if (jumps == 0) xvelocity = 0f;
 		}
 		// else user input as normal (run and jump)
 		// Anything that must NOT happen in special animation, but should happen normally goes here
@@ -175,6 +175,7 @@ public class PlayerMovement : MonoBehaviour {
 				jumps++;
 				yvelocity = 1.5f;
 				jumpReleased = false;
+				anim.SetTrigger("jump");
 			} else if (jumps > 0 && Input.GetAxis (VERTICAL) < 0) {
 				yvelocity -= .10f;
 			}
@@ -220,6 +221,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (raycastBottomMiddle.collider != null || raycastBottomRight.collider != null || raycastBottomLeft.collider != null) {
 			jumps = 0;
 			yvelocity = 0;
+			anim.SetBool("falling", false);
 		}
 	}
 	
@@ -231,6 +233,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (raycastBottomMiddle.collider != null || raycastBottomRight.collider != null || raycastBottomLeft.collider != null) {
 			jumps = 0;
 			yvelocity = 0;
+			anim.SetBool("falling", false);
 		}
 	}
 	
@@ -241,6 +244,7 @@ public class PlayerMovement : MonoBehaviour {
 		// if the player can jump on something
 		if (raycastBottomMiddle.collider == null && raycastBottomRight.collider == null && raycastBottomLeft.collider == null) {
 			jumps = 1;
+			anim.SetBool("falling", true);
 		}
 	}
 	
