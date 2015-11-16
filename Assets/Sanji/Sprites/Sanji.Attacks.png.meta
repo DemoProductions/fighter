@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 7dcb7e275efdd480eb5a4025984c05f7
+timeCreated: 1447632293
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sanji.Attacks_0
+    21300002: Sanji.Attacks_1
+    21300004: Sanji.Attacks_2
+    21300006: Sanji.Attacks_3
+    21300008: Sanji.Attacks_4
+    21300010: Sanji.Attacks_5
+    21300012: Sanji.Attacks_6
+    21300014: Sanji.Attacks_7
+    21300016: Sanji.Attacks_8
+    21300018: Sanji.Attacks_9
+    21300020: Sanji.Attacks_10
+    21300022: Sanji.Attacks_11
+    21300024: Sanji.Attacks_12
+    21300026: Sanji.Attacks_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Sanji.Attacks_0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 3134
+        width: 230
+        height: 545
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_1
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 3135
+        width: 416
+        height: 523
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_2
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 3137
+        width: 320
+        height: 495
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_3
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 3135
+        width: 559
+        height: 493
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_4
+      rect:
+        serializedVersion: 2
+        x: 2548
+        y: 3137
+        width: 529
+        height: 514
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_5
+      rect:
+        serializedVersion: 2
+        x: 3229
+        y: 3134
+        width: 257
+        height: 519
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_6
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 2509
+        width: 349
+        height: 520
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_7
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 2512
+        width: 281
+        height: 548
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_8
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 2509
+        width: 230
+        height: 545
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2508
+        width: 278
+        height: 532
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_10
+      rect:
+        serializedVersion: 2
+        x: 2614
+        y: 2508
+        width: 455
+        height: 523
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_11
+      rect:
+        serializedVersion: 2
+        x: 3199
+        y: 2507
+        width: 496
+        height: 582
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1882
+        width: 498
+        height: 579
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Attacks_13
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1883
+        width: 385
+        height: 498
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
