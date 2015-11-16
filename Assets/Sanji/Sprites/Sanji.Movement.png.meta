@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: f519253f19af947058ce1fa902295c00
+timeCreated: 1447632333
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sanji.Movement_0
+    21300002: Sanji.Movement_1
+    21300004: Sanji.Movement_2
+    21300006: Sanji.Movement_3
+    21300008: Sanji.Movement_4
+    21300010: Sanji.Movement_5
+    21300012: Sanji.Movement_6
+    21300014: Sanji.Movement_7
+    21300016: Sanji.Movement_8
+    21300018: Sanji.Movement_9
+    21300020: Sanji.Movement_10
+    21300022: Sanji.Movement_11
+    21300024: Sanji.Movement_12
+    21300026: Sanji.Movement_13
+    21300028: Sanji.Movement_14
+    21300030: Sanji.Movement_15
+    21300032: Sanji.Movement_16
+    21300034: Sanji.Movement_17
+    21300036: Sanji.Movement_18
+    21300038: Sanji.Movement_19
+    21300040: Sanji.Movement_20
+    21300042: Sanji.Movement_21
+    21300044: Sanji.Movement_22
+    21300046: Sanji.Movement_23
+    21300048: Sanji.Movement_24
+    21300050: Sanji.Movement_25
+    21300052: Sanji.Movement_26
+    21300054: Sanji.Movement_27
+    21300056: Sanji.Movement_28
+    21300058: Sanji.Movement_29
+    21300060: Sanji.Movement_30
+    21300062: Sanji.Movement_31
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Sanji.Movement_0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 3134
+        width: 230
+        height: 545
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_1
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 3134
+        width: 364
+        height: 455
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_2
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 3236
+        width: 458
+        height: 353
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_3
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 3149
+        width: 402
+        height: 426
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_4
+      rect:
+        serializedVersion: 2
+        x: 2603
+        y: 3136
+        width: 387
+        height: 443
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_5
+      rect:
+        serializedVersion: 2
+        x: 3320
+        y: 3134
+        width: 256
+        height: 445
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 2592
+        width: 505
+        height: 379
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_7
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 2509
+        width: 451
+        height: 486
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_8
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 2509
+        width: 298
+        height: 497
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2508
+        width: 278
+        height: 532
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_10
+      rect:
+        serializedVersion: 2
+        x: 2614
+        y: 2508
+        width: 455
+        height: 523
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_11
+      rect:
+        serializedVersion: 2
+        x: 3199
+        y: 2507
+        width: 496
+        height: 582
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1882
+        width: 498
+        height: 579
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_13
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1883
+        width: 385
+        height: 498
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_14
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 1884
+        width: 300
+        height: 407
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_15
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 1884
+        width: 347
+        height: 520
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_16
+      rect:
+        serializedVersion: 2
+        x: 2649
+        y: 1888
+        width: 349
+        height: 516
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_17
+      rect:
+        serializedVersion: 2
+        x: 3204
+        y: 2030
+        width: 434
+        height: 399
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1383
+        width: 425
+        height: 396
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_19
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1263
+        width: 293
+        height: 412
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_20
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 1263
+        width: 314
+        height: 367
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_21
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 1262
+        width: 300
+        height: 407
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_22
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 1259
+        width: 335
+        height: 547
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_23
+      rect:
+        serializedVersion: 2
+        x: 3256
+        y: 1261
+        width: 361
+        height: 441
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_24
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 632
+        width: 381
+        height: 469
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_25
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 699
+        width: 505
+        height: 339
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_26
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 708
+        width: 417
+        height: 317
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_27
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 623
+        width: 562
+        height: 182
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_28
+      rect:
+        serializedVersion: 2
+        x: 2586
+        y: 625
+        width: 236
+        height: 321
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_29
+      rect:
+        serializedVersion: 2
+        x: 3158
+        y: 671
+        width: 523
+        height: 327
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_30
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 90
+        width: 403
+        height: 445
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sanji.Movement_31
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 9
+        width: 288
+        height: 352
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

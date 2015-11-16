@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour {
 	public bool right;
 	public bool thrown;
 	public bool thrownRight;
+	public bool hit;
+	public bool hitRight;
 	public Vector2 knockbackVector;
 	public HitBoxManager hitboxmanager;
 	public HurtBoxManager hurtboxmanager;
@@ -33,7 +35,8 @@ public class PlayerMovement : MonoBehaviour {
 	public string LIGHT_ATTACK;
 	public string HEAVY_ATTACK;
 	public string DODGE;
-
+	
+	private const string NEUTRAL_LIGHT = "neutral_light";
 	private const string NEUTRAL_HEAVY = "neutral_heavy";
 
 	public const float GRAVITY = .05f;
@@ -53,6 +56,7 @@ public class PlayerMovement : MonoBehaviour {
 		hurtboxmanager = this.gameObject.GetComponentInChildren<HurtBoxManager> ();
 		raycastJumpLength = 0.1f;
 		thrown = false;
+		hit = false;
 		jumpReleased = true;
 		heavyAttackReleased = true;
 		lightAttackReleased = true;
@@ -100,17 +104,26 @@ public class PlayerMovement : MonoBehaviour {
 			thrown = false;
 			jumps = 1;
 		}
+		else if (hit) {
+			hitboxmanager.clear();
+			right = hitRight;
+			// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
+			// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
+			hit = false;
+		}
 
 		// Special Animation logic
 
-		// if thrown, ignore user input, velocity is away from the direction you are facing.
+		// if thrown, hit, or ko, ignore user input, velocity is away from the direction you are facing.
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("thrown") 
+		    || anim.GetCurrentAnimatorStateInfo (0).IsName ("hit")
 		    || anim.GetCurrentAnimatorStateInfo (0).IsName ("ko")) {
 			xvelocity = knockbackVector.x;
 			yvelocity = knockbackVector.y;
 			knockbackVector.y -= GRAVITY;
 		}
-		else if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)) {
+		else if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)
+		         || anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_LIGHT)) {
 			xvelocity = 0f;
 		}
 		// else user input as normal (run and jump)
@@ -147,6 +160,10 @@ public class PlayerMovement : MonoBehaviour {
 			if (heavyAttackReleased && Input.GetAxis (HEAVY_ATTACK) > 0) {
 				heavyAttackReleased = false;
 				anim.SetTrigger(NEUTRAL_HEAVY);
+			}
+			else if (lightAttackReleased && Input.GetAxis (LIGHT_ATTACK) > 0) {
+				lightAttackReleased = false;
+				anim.SetTrigger(NEUTRAL_LIGHT);
 			}
 			// else run, if necessary
 			else {
@@ -278,9 +295,12 @@ public class PlayerMovement : MonoBehaviour {
 		hurtboxmanager.setCollider (ColliderManager.types.neutral_light, val);
 	}
 
-	public void hit(Collider2D collider) {
+	public void hitCollider(Collider2D collider) {
 		// right is direction boolean of the hitting player
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)) {
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_LIGHT)) {
+			character.neutralLight (collider.transform.parent.gameObject, this.gameObject);
+		}
+		else if (anim.GetCurrentAnimatorStateInfo (0).IsName (NEUTRAL_HEAVY)) {
 			character.neutralHeavy (collider.transform.parent.gameObject, this.gameObject);
 		}
 	}
@@ -297,6 +317,19 @@ public class PlayerMovement : MonoBehaviour {
 		// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
 		anim.Play ("thrown");
 		thrown = true;
+	}
+
+	public void wasHit(float direction) {
+		if (direction > 0) {
+			hitRight = true;
+		}
+		else {
+			hitRight = false;
+		}
+		// anim.Play immediately skips to thrown animation. Thrown will happen often enough that making a trigger line
+		// from every other animation to thrown would be annoying. Thrown default returns to idle, for now.
+		anim.Play ("hit");
+		hit = true;
 	}
 
 	public void wasKo(float direction) {
