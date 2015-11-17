@@ -2,7 +2,8 @@
 
 public class GameOver : MonoBehaviour
 {
-	public Texture gameTexture;
+	public Texture gameOverTexture;
+	public Texture replayTexture;
 
 	void OnGUI()
 	{
@@ -10,8 +11,9 @@ public class GameOver : MonoBehaviour
 		const int buttonHeight = 60;
 
 		GUI.depth = -1;
-
-		GUI.DrawTexture(new Rect(0, 0 - Screen.height / 5, Screen.width, Screen.height), gameTexture, ScaleMode.ScaleToFit, true);
+		
+		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), gameOverTexture, ScaleMode.ScaleToFit, true);
+		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), replayTexture, ScaleMode.ScaleToFit, true);
 
 		if (
 			GUI.Button(
@@ -39,12 +41,12 @@ public class GameOver : MonoBehaviour
 			buttonWidth,
 			buttonHeight
 			),
-			"Back to menu"
+			"Quit"
 			)
 			)
 		{
 			// Reload the level
-			Application.LoadLevel("menu");
+			Application.Quit ();
 		}
 	}
 }
