@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ColliderManager : MonoBehaviour {
@@ -6,6 +6,9 @@ public class ColliderManager : MonoBehaviour {
 	// Set these in the editor
 	public PolygonCollider2D[] idle;
 	public PolygonCollider2D[] run;
+	public PolygonCollider2D[] jump;
+	public PolygonCollider2D[] fall;
+	public PolygonCollider2D[] land;
 	public PolygonCollider2D[] neutralLight;
 	public PolygonCollider2D[] neutralHeavy;
 	
@@ -16,6 +19,9 @@ public class ColliderManager : MonoBehaviour {
 	{
 		idle,
 		run,
+		jump,
+		fall,
+		land,
 		neutral_light,
 		neutral_heavy,
 		clear // special case to remove all boxes
@@ -60,6 +66,15 @@ public class ColliderManager : MonoBehaviour {
 				break;
 			case (int)types.run:
 				localCollider.SetPath(0, run[(int)frame].GetPath(0));
+				break;
+			case (int)types.jump:
+				localCollider.SetPath(0, jump[(int)frame].GetPath(0));
+				break;
+			case (int)types.fall:
+				localCollider.SetPath(0, fall[(int)frame].GetPath(0));
+				break;
+			case (int)types.land:
+				localCollider.SetPath(0, land[(int)frame].GetPath(0));
 				break;
 			case (int)types.neutral_light:
 				localCollider.SetPath(0, neutralLight[(int)frame].GetPath(0));
