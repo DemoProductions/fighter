@@ -286,7 +286,19 @@ public class PlayerMovement : MonoBehaviour {
 	public void setIdleHurtBox(ColliderManager.frames val) {
 		hurtboxmanager.setCollider (ColliderManager.types.idle, val);
 	}
-	
+
+	public void setJumpHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.jump, val);
+	}
+
+	public void setFallHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.fall, val);
+	}
+
+	public void setLandHurtBox(ColliderManager.frames val) {
+		hurtboxmanager.setCollider (ColliderManager.types.land, val);
+	}
+
 	public void setRunHurtBox(ColliderManager.frames val) {
 		hurtboxmanager.setCollider (ColliderManager.types.run, val);
 	}
