@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour {
 		RaycastHit2D raycastBottomLeft = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		// if the player can jump on something
 		if (raycastBottomMiddle.collider == null && raycastBottomRight.collider == null && raycastBottomLeft.collider == null) {
-			jumps = 1;
+			if (jumps == 0) jumps = 1;
 			anim.SetBool("falling", true);
 		}
 	}
