@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Health health;
 
+	private AudioSource[] audios;
+
 	public Character character;
 
 	public bool jumpReleased;
@@ -43,6 +45,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	public const float GRAVITY = .05f;
 	public const float WALL_GRAVITY = .01f;
+
+	private const int HEAVY_ATTACK_AUDIO = 0;
+	private const int LIGHT_ATTACK_AUDIO = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -68,6 +73,8 @@ public class PlayerMovement : MonoBehaviour {
 		dodgeReleased = true;
 
 		health = gameObject.GetComponent<Health> ();
+
+		audios = gameObject.GetComponents<AudioSource> ();
 	}
 
 	// set player relevant information
@@ -177,10 +184,12 @@ public class PlayerMovement : MonoBehaviour {
 			if (heavyAttackReleased && Input.GetAxis (HEAVY_ATTACK) > 0) {
 				heavyAttackReleased = false;
 				anim.SetTrigger(NEUTRAL_HEAVY);
+				audios[HEAVY_ATTACK_AUDIO].Play ();
 			}
 			else if (lightAttackReleased && Input.GetAxis (LIGHT_ATTACK) > 0) {
 				lightAttackReleased = false;
 				anim.SetTrigger(NEUTRAL_LIGHT);
+				audios[LIGHT_ATTACK_AUDIO].Play ();
 			}
 			// else run, if necessary
 			else {
