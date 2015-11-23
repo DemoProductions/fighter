@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour {
 	public bool thrownRight;
 	public bool hit;
 	public bool hitRight;
+	public bool onWall;
+	public bool wallJumping;
 	public Vector2 knockbackVector;
 	public HitBoxManager hitboxmanager;
 	public HurtBoxManager hurtboxmanager;
@@ -38,8 +40,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	private const string NEUTRAL_LIGHT = "neutral_light";
 	private const string NEUTRAL_HEAVY = "neutral_heavy";
-
+	
 	public const float GRAVITY = .05f;
+	public const float WALL_GRAVITY = .01f;
 
 	// Use this for initialization
 	void Start () {
@@ -57,6 +60,8 @@ public class PlayerMovement : MonoBehaviour {
 		raycastJumpLength = 0.1f;
 		thrown = false;
 		hit = false;
+		onWall = false;
+		wallJumping = false;
 		jumpReleased = true;
 		heavyAttackReleased = true;
 		lightAttackReleased = true;
@@ -129,8 +134,6 @@ public class PlayerMovement : MonoBehaviour {
 		// else user input as normal (run and jump)
 		// Anything that must NOT happen in special animation, but should happen normally goes here
 		else {
-			xvelocity = Input.GetAxis (HORIZONTAL);
-
 			// save direction boolean
 			// remembers last direction (when x = 0 it will leave in the previous state)
 			if (xvelocity > 0) {
@@ -138,6 +141,20 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else if (xvelocity < 0) {
 				right = false;
+			}
+
+			if (wallJumping) {
+				if (right) {
+					xvelocity -= .075f;
+					if (xvelocity <= 0) wallJumping = false;
+				}
+				else {
+					xvelocity += .075f;
+					if (xvelocity >= 0) wallJumping = false;
+				}
+			}
+			else {
+				xvelocity = Input.GetAxis (HORIZONTAL);
 			}
 
 			if (Input.GetAxis(VERTICAL) == 0) {
@@ -173,8 +190,16 @@ public class PlayerMovement : MonoBehaviour {
 			//jump logic
 			if (jumpReleased && Input.GetAxis (VERTICAL) > 0 && jumps < 2) {
 				jumps++;
-				yvelocity = 1.5f;
 				jumpReleased = false;
+				if(onWall) {
+					if (right) xvelocity = -1;
+					else xvelocity = 1;
+					wallJumping = true;
+				}
+				else {
+					wallJumping = false;
+				}
+				yvelocity = 1.5f;
 				anim.SetTrigger("jump");
 			} else if (jumps > 0 && Input.GetAxis (VERTICAL) < 0) {
 				yvelocity -= .10f;
@@ -201,7 +226,12 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		// start character falling. Default falling felt bad. This is not necessary.
-		yvelocity -= GRAVITY;
+		if (onWall) {
+			if (yvelocity > 0) yvelocity -= GRAVITY;
+			else yvelocity -= WALL_GRAVITY;
+		} else {
+			yvelocity -= GRAVITY;
+		}
 
 		// apply movement
 		GetComponent<Rigidbody2D>().velocity = new Vector2(xvelocity, yvelocity) * Time.deltaTime * speed;
@@ -211,17 +241,40 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down * raycastJumpLength, Color.red);
 		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down * raycastJumpLength, Color.red);
 		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down * raycastJumpLength, Color.red);
+
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.right * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.max.y - .025f), Vector2.right * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.right * raycastJumpLength, Color.red);
+		
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.left * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.max.y - .025f), Vector2.left * raycastJumpLength, Color.red);
+		Debug.DrawRay (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.left * raycastJumpLength, Color.red);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		RaycastHit2D raycastBottomMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		RaycastHit2D raycastBottomRight = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		RaycastHit2D raycastBottomLeft = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		
+		RaycastHit2D raycastRightMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.right, raycastJumpLength);
+		RaycastHit2D raycastRightTop = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y - .025f), Vector2.right, raycastJumpLength);
+		RaycastHit2D raycastRightBottom = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.right, raycastJumpLength);
+		
+		RaycastHit2D raycastLeftMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.left, raycastJumpLength);
+		RaycastHit2D raycastLeftTop = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y - .025f), Vector2.left, raycastJumpLength);
+		RaycastHit2D raycastLeftBottom = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.left, raycastJumpLength);
 		// if the player can jump on something
 		if (raycastBottomMiddle.collider != null || raycastBottomRight.collider != null || raycastBottomLeft.collider != null) {
 			jumps = 0;
 			yvelocity = 0;
+			onWall = false;
 			anim.SetBool("falling", false);
+		}
+		else if (raycastRightMiddle.collider != null || raycastRightTop.collider != null || raycastRightBottom.collider != null ||
+		         raycastLeftMiddle.collider != null || raycastLeftTop.collider != null || raycastLeftBottom.collider != null) {
+			jumps = 0;
+			onWall = true;
+			anim.SetBool ("wallgrab", true);
 		}
 	}
 	
@@ -229,11 +282,26 @@ public class PlayerMovement : MonoBehaviour {
 		RaycastHit2D raycastBottomMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		RaycastHit2D raycastBottomRight = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		RaycastHit2D raycastBottomLeft = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		
+		RaycastHit2D raycastRightMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.right, raycastJumpLength);
+		RaycastHit2D raycastRightTop = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y - .025f), Vector2.right, raycastJumpLength);
+		RaycastHit2D raycastRightBottom = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.right, raycastJumpLength);
+		
+		RaycastHit2D raycastLeftMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.left, raycastJumpLength);
+		RaycastHit2D raycastLeftTop = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y - .025f), Vector2.left, raycastJumpLength);
+		RaycastHit2D raycastLeftBottom = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.left, raycastJumpLength);
 		// if the player can jump on something
 		if (raycastBottomMiddle.collider != null || raycastBottomRight.collider != null || raycastBottomLeft.collider != null) {
 			jumps = 0;
 			yvelocity = 0;
+			onWall = false;
 			anim.SetBool("falling", false);
+		}
+		else if (raycastRightMiddle.collider != null || raycastRightTop.collider != null || raycastRightBottom.collider != null ||
+		         raycastLeftMiddle.collider != null || raycastLeftTop.collider != null || raycastLeftBottom.collider != null) {
+			jumps = 0;
+			onWall = true;
+			anim.SetBool ("wallgrab", true);
 		}
 	}
 	
@@ -241,10 +309,25 @@ public class PlayerMovement : MonoBehaviour {
 		RaycastHit2D raycastBottomMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.center.x, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		RaycastHit2D raycastBottomRight = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x - .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
 		RaycastHit2D raycastBottomLeft = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x + .025f, GetComponent<BoxCollider2D>().bounds.min.y - .01f), Vector2.down, raycastJumpLength);
+		
+		RaycastHit2D raycastRightMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.right, raycastJumpLength);
+		RaycastHit2D raycastRightTop = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y - .025f), Vector2.right, raycastJumpLength);
+		RaycastHit2D raycastRightBottom = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.max.x + .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.right, raycastJumpLength);
+		
+		RaycastHit2D raycastLeftMiddle = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.center.y), Vector2.left, raycastJumpLength);
+		RaycastHit2D raycastLeftTop = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y - .025f), Vector2.left, raycastJumpLength);
+		RaycastHit2D raycastLeftBottom = Physics2D.Raycast (new Vector2(GetComponent<BoxCollider2D>().bounds.min.x - .01f, GetComponent<BoxCollider2D>().bounds.min.y + .025f), Vector2.left, raycastJumpLength);
 		// if the player can jump on something
 		if (raycastBottomMiddle.collider == null && raycastBottomRight.collider == null && raycastBottomLeft.collider == null) {
-			if (jumps == 0) jumps = 1;
+			jumps = 1;
+			onWall = false;
 			anim.SetBool("falling", true);
+		}
+		else if (raycastRightMiddle.collider != null || raycastRightTop.collider != null || raycastRightBottom.collider != null ||
+		         raycastLeftMiddle.collider != null || raycastLeftTop.collider != null || raycastLeftBottom.collider != null) {
+			jumps = 1;
+			onWall = false;
+			anim.SetBool ("wallgrab", false);
 		}
 	}
 	
@@ -362,4 +445,5 @@ public class PlayerMovement : MonoBehaviour {
 	public void wasKoFromLedge() { // maybe we want a better name for this
 		GameObject.Find ("scene").GetComponent<Scene> ().deactivatePlayer (this.name);
 	}
+
 }
