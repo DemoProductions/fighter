@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: d12d31e07b5c0492eb32479c4f27616a
+timeCreated: 1449478137
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: mini_pyramid
+    100004: Moon_Pyramid
+    100006: pPlane1
+    100008: pPlane2
+    100010: side_pyramid
+    100012: side_pyramid1
+    100014: side_pyramid2
+    100016: side_pyramid3
+    100018: side_pyramid4
+    100020: side_pyramid5
+    100022: step_pyramid
+    400000: //RootNode
+    400002: mini_pyramid
+    400004: Moon_Pyramid
+    400006: pPlane1
+    400008: pPlane2
+    400010: side_pyramid
+    400012: side_pyramid1
+    400014: side_pyramid2
+    400016: side_pyramid3
+    400018: side_pyramid4
+    400020: side_pyramid5
+    400022: step_pyramid
+    2300000: mini_pyramid
+    2300002: Moon_Pyramid
+    2300004: pPlane1
+    2300006: pPlane2
+    2300008: side_pyramid
+    2300010: side_pyramid1
+    2300012: side_pyramid2
+    2300014: side_pyramid3
+    2300016: side_pyramid4
+    2300018: side_pyramid5
+    2300020: step_pyramid
+    3300000: mini_pyramid
+    3300002: Moon_Pyramid
+    3300004: pPlane1
+    3300006: pPlane2
+    3300008: side_pyramid
+    3300010: side_pyramid1
+    3300012: side_pyramid2
+    3300014: side_pyramid3
+    3300016: side_pyramid4
+    3300018: side_pyramid5
+    3300020: step_pyramid
+    4300000: step_pyramid
+    4300002: side_pyramid1
+    4300004: side_pyramid
+    4300006: mini_pyramid
+    4300008: Moon_Pyramid
+    4300010: side_pyramid2
+    4300012: side_pyramid3
+    4300014: side_pyramid4
+    4300016: side_pyramid5
+    4300018: pPlane1
+    4300020: pPlane2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
