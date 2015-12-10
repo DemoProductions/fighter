@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerSpawner : MonoBehaviour {
 
 	public GameObject sanji;
+	public GameObject robocop;
 	public GameObject[] players = new GameObject[2];
 
 	// Use this for initialization
@@ -11,7 +12,7 @@ public class PlayerSpawner : MonoBehaviour {
 		// we need to figure out a way to determine player count before this step, assuming 2 for now
 		// also need to determine spawn positions x,y. Could just input to this script based on scene?
 		PlayerMovement player1 = (Instantiate (sanji, new Vector2 (0, -1), Quaternion.identity) as GameObject).GetComponent<PlayerMovement>();
-		PlayerMovement player2 = (Instantiate (sanji, new Vector2 (10, -1), Quaternion.identity) as GameObject).GetComponent<PlayerMovement>();
+		PlayerMovement player2 = (Instantiate (robocop, new Vector2 (10, -1), Quaternion.identity) as GameObject).GetComponent<PlayerMovement>();
 		// set player specific settings
 		player1.setPlayer (1);
 		player2.setPlayer (2);
