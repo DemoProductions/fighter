@@ -26,6 +26,8 @@ public class CharacterSelect : MonoBehaviour {
 	public GameObject charselect;
 	public GameObject levelselect;
 
+	public AudioSource menuNav;
+
 	// Use this for initialization
 	void Start () {
 		player1character = 0;
@@ -41,6 +43,7 @@ public class CharacterSelect : MonoBehaviour {
 		charselect = GameObject.Find ("CharacterSelect");
 		levelselect = GameObject.Find ("LevelSelect");
 		levelselect.SetActive (false);
+		menuNav = gameObject.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -52,6 +55,8 @@ public class CharacterSelect : MonoBehaviour {
 		//check for start
 		if (Input.GetKeyDown (KeyCode.Return)) {
 			if(player1delta < 0) {
+				menuNav.Play();
+
 				if (charSelect) {
 					charselect.SetActive (false);
 					levelselect.SetActive (true);
@@ -68,18 +73,23 @@ public class CharacterSelect : MonoBehaviour {
 		if (charSelect) {
 			if (player1delta < 0) {
 				if (Input.GetAxis ("Horizontal1") > 0 || Input.GetAxis ("Vertical1") < 0) {
+					menuNav.Play();
 					player1character++;
 					player1delta = holdDelta;
 				} else if (Input.GetAxis ("Horizontal1") < 0 || Input.GetAxis ("Vertical1") > 0) {
+					menuNav.Play();
 					player1character--;
 					player1delta = holdDelta;
 				}
 			}
 			if (player2delta < 0) {
+
 				if (Input.GetAxis ("Horizontal2") > 0 || Input.GetAxis ("Vertical2") < 0) {
+					menuNav.Play();
 					player2character++;
 					player2delta = holdDelta;
 				} else if (Input.GetAxis ("Horizontal2") < 0 || Input.GetAxis ("Vertical2") > 0) {
+					menuNav.Play();
 					player2character--;
 					player2delta = holdDelta;
 				}
@@ -87,9 +97,11 @@ public class CharacterSelect : MonoBehaviour {
 		} else {
 			if (player1delta < 0) {
 				if (Input.GetAxis ("Horizontal1") > 0 || Input.GetAxis ("Vertical1") < 0) {
+					menuNav.Play();
 					level++;
 					player1delta = holdDelta;
 				} else if (Input.GetAxis ("Horizontal1") < 0 || Input.GetAxis ("Vertical1") > 0) {
+					menuNav.Play();
 					level--;
 					player1delta = holdDelta;
 				}

@@ -25,7 +25,10 @@ public class Menu : MonoBehaviour {
 //	}
 
 	void FixedUpdate() {
-		if(Input.anyKey) Application.LoadLevel("character select");
+		if (Input.anyKey) {
+			pressAnyKey.GetComponent<AudioSource>().Play ();
+			Application.LoadLevel ("character select");
+		}
 	}
 
 	IEnumerator blinkPressAnyKey() {
