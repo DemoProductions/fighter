@@ -36,7 +36,7 @@ public class Menu : MonoBehaviour {
 			pressAnyKey.SetActive (false);
 			yield return new WaitForSeconds(.1f);
 			pressAnyKey.SetActive (true);
-			yield return new WaitForSeconds(.5f);
+			yield return new WaitForSeconds(.7f);
 		}
 	}
 }

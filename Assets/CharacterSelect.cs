@@ -31,7 +31,7 @@ public class CharacterSelect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player1character = 0;
-		player2character = 0;
+		player2character = 1;
 		level = 0;
 		player1image = GameObject.Find("Char1").GetComponent<Image>();
 		player2image = GameObject.Find("Char2").GetComponent<Image>();
