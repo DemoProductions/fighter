@@ -13,8 +13,8 @@ public class HealthBarSpawner : MonoBehaviour {
 		// Position vector stubs will be set depending on the player
 		GameObject player1HealthBar = Instantiate (healthBar, new Vector2 (0, 0), Quaternion.identity) as GameObject;
 		GameObject player2HealthBar = Instantiate (healthBar, new Vector2 (0, 0), Quaternion.identity) as GameObject;
-		player1HealthBar.GetComponent<HealthBar> ().setHealthBar (1, player1HealthBarPos);
-		player2HealthBar.GetComponent<HealthBar> ().setHealthBar (2, player2HealthBarPos);
+		player1HealthBar.GetComponent<HealthBar> ().setHealthBar (1, player1HealthBarPos, healthBarSize);
+		player2HealthBar.GetComponent<HealthBar> ().setHealthBar (2, player2HealthBarPos, healthBarSize);
 	}
 	
 	// Update is called once per frame

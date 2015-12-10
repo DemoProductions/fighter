@@ -28,8 +28,10 @@ public class GameOver : MonoBehaviour
 			)
 			)
 		{
+			Scene scene = GameObject.Find ("scene").GetComponent<Scene>();
+
 			// Reload the level
-			Application.LoadLevel("testscene2");
+			Application.LoadLevel(scene.currentLevel);
 		}
 		
 		if (
