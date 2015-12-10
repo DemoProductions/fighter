@@ -2,9 +2,6 @@
 using System.Collections;
 
 public class PlayerSpawner : MonoBehaviour {
-
-	public GameObject sanji;
-	public GameObject robocop;
 	
 	// probably would be better with a character object so we could have one "characters" array and just get the int for
 	// the players chosen character and then get the necessary info (say characters[2].sprite or characters[2].GameObject)
