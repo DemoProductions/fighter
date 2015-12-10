@@ -40,6 +40,10 @@ public class ColliderManager : MonoBehaviour {
 		frame8,
 		frame9,
 		frame10,
+		frame11,
+		frame12,
+		frame13,
+		frame14,
 		clear // special case to remove all boxes
 	}
 	

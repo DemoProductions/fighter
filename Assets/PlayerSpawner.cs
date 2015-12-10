@@ -14,6 +14,7 @@ public class PlayerSpawner : MonoBehaviour {
 		// also need to determine spawn positions x,y. Could just input to this script based on scene?
 		PlayerMovement player1 = (Instantiate (characters[CharacterSelect.player1character], new Vector2 (0, -1), Quaternion.identity) as GameObject).GetComponent<PlayerMovement>();
 		PlayerMovement player2 = (Instantiate (characters[CharacterSelect.player2character], new Vector2 (10, -1), Quaternion.identity) as GameObject).GetComponent<PlayerMovement>();
+
 		// set player specific settings
 		player1.setPlayer (1);
 		player2.setPlayer (2);
