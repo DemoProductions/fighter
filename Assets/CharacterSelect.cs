@@ -64,6 +64,7 @@ public class CharacterSelect : MonoBehaviour {
 					player2delta = holdDelta;
 				}
 				else {
+					GameObject.Destroy (GameObject.Find ("menu_music"));
 					Application.LoadLevel(levelnames[level]);
 				}
 			}
