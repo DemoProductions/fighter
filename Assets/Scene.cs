@@ -6,7 +6,7 @@ public class Scene : MonoBehaviour {
 	public GameObject gameOver;
 	public int numPlayers;
 	public string currentLevel;
-
+	
 	// Use this for initialization
 	void Start () {
 		PlayerSpawner playerSpawner = GameObject.Find ("PlayerSpawner").GetComponent<PlayerSpawner> ();
