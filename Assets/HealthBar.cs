@@ -3,8 +3,8 @@ using UnityEngine;
 using System.Collections;
 
 public class HealthBar : MonoBehaviour {
-	private Vector2 pos;
-	private Vector2 size = new Vector2(120, 20);
+	private Vector2 healthBarPos;
+	private Vector2 healthBarSize;
 	private float health; // full hp if health is 1 on the gui
 	private int maxHealth;
 	private Texture2D emptyTex;
@@ -21,17 +21,19 @@ public class HealthBar : MonoBehaviour {
 	private int UPPER_RED_RANGE = 30;
 	private int LOWER_RED_RANGE = 0;
 
-	public void setHealthBar(int player, Vector2 playerHealthBarPos) {
+	public void setHealthBar(int player, Vector2 healthBarPos, Vector2 healthBarSize) {
 		switch (player) {
 		case 1:
 			gameObject.name = "player1_healthbar";
 			REFERENCE_PLAYER = "player1";
-			pos = new Vector2(20, 40);
+			this.healthBarPos = healthBarPos;
+			this.healthBarSize = healthBarSize;
 			break;
 		case 2:
 			gameObject.name = "player2_healthbar";
-			pos = new Vector2(320, 40);
 			REFERENCE_PLAYER = "player2";
+			this.healthBarPos = healthBarPos;
+			this.healthBarSize = healthBarSize;
 			break;
 		}
 	}
@@ -68,10 +70,10 @@ public class HealthBar : MonoBehaviour {
 			healthBarStyle.normal.background = makeTex (1, 1, new Color (1f, 0f, 0f, 1f));
 		}
 		
-		GUI.BeginGroup (new Rect(pos.x, pos.y, size.x, size.y));
-		GUI.Box (new Rect (0, 0, size.x, size.y), emptyTex);
-		GUI.BeginGroup (new Rect (0, 0, size.x * health, size.y));
-		GUI.Box (new Rect (0, 0, size.x, size.y), fullTex, healthBarStyle);
+		GUI.BeginGroup (new Rect(healthBarPos.x, healthBarPos.y, healthBarSize.x, healthBarSize.y));
+		GUI.Box (new Rect (0, 0, healthBarSize.x, healthBarSize.y), emptyTex);
+		GUI.BeginGroup (new Rect (0, 0, healthBarSize.x * health, healthBarSize.y));
+		GUI.Box (new Rect (0, 0, healthBarSize.x, healthBarSize.y), fullTex, healthBarStyle);
 		GUI.EndGroup ();
 		GUI.EndGroup ();
 	}
