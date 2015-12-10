@@ -18,6 +18,6 @@ public class Menu : MonoBehaviour{
 //	}
 
 	void FixedUpdate() {
-		if(Input.anyKey) Application.LoadLevel("testscene2");
+		if(Input.anyKey) Application.LoadLevel("character select");
 	}
 }
