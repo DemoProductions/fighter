@@ -1,0 +1,528 @@
+fileFormatVersion: 2
+guid: ce7c1774a0dc6495385f133ccd4580eb
+timeCreated: 1449105058
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spritesheetclear_0
+    21300002: spritesheetclear_1
+    21300004: spritesheetclear_2
+    21300006: spritesheetclear_3
+    21300008: spritesheetclear_4
+    21300010: spritesheetclear_5
+    21300012: spritesheetclear_6
+    21300014: spritesheetclear_7
+    21300016: spritesheetclear_8
+    21300018: spritesheetclear_9
+    21300020: spritesheetclear_10
+    21300022: spritesheetclear_11
+    21300024: spritesheetclear_12
+    21300026: spritesheetclear_13
+    21300028: spritesheetclear_14
+    21300030: spritesheetclear_15
+    21300032: spritesheetclear_16
+    21300034: spritesheetclear_17
+    21300036: spritesheetclear_18
+    21300038: spritesheetclear_19
+    21300040: spritesheetclear_20
+    21300042: spritesheetclear_21
+    21300044: spritesheetclear_22
+    21300046: spritesheetclear_23
+    21300048: spritesheetclear_24
+    21300050: spritesheetclear_25
+    21300052: spritesheetclear_26
+    21300054: spritesheetclear_27
+    21300056: spritesheetclear_28
+    21300058: spritesheetclear_29
+    21300060: spritesheetclear_30
+    21300062: spritesheetclear_31
+    21300064: spritesheetclear_32
+    21300066: spritesheetclear_33
+    21300068: spritesheetclear_34
+    21300070: spritesheetclear_35
+    21300072: spritesheetclear_36
+    21300074: spritesheetclear_37
+    21300076: spritesheetclear_38
+    21300078: spritesheetclear_39
+    21300080: spritesheetclear_40
+    21300082: spritesheetclear_41
+    21300084: spritesheetclear_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: spritesheetclear_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3488
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_1
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3488
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_2
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 3487
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_3
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 3488
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_4
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 3488
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_5
+      rect:
+        serializedVersion: 2
+        x: 2617
+        y: 3488
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_6
+      rect:
+        serializedVersion: 2
+        x: 3151
+        y: 3488
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2956
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_8
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 2956
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_9
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 2956
+        width: 438
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_10
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 2956
+        width: 446
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_11
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2956
+        width: 410
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_12
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2960
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_13
+      rect:
+        serializedVersion: 2
+        x: 3102
+        y: 2962
+        width: 426
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2428
+        width: 446
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_15
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 2432
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_16
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 2428
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_17
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 2424
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_18
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 2424
+        width: 410
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_19
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2436
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_20
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 2438
+        width: 426
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_21
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 1890
+        width: 446
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_22
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1900
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_23
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1894
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_24
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 1398
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_25
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1350
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_26
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1358
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_27
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 1406
+        width: 349
+        height: 440
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_28
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1374
+        width: 446
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_29
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 820
+        width: 446
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_30
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 818
+        width: 422
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_31
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 842
+        width: 349
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_32
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 840
+        width: 339
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_33
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 856
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_34
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 858
+        width: 401
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_35
+      rect:
+        serializedVersion: 2
+        x: 3102
+        y: 856
+        width: 353
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_36
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 282
+        width: 446
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_37
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 286
+        width: 422
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_38
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 298
+        width: 438
+        height: 512
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_39
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 390
+        width: 512
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_40
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 410
+        width: 512
+        height: 368
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_41
+      rect:
+        serializedVersion: 2
+        x: 2704
+        y: 404
+        width: 512
+        height: 368
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheetclear_42
+      rect:
+        serializedVersion: 2
+        x: 3292
+        y: 390
+        width: 512
+        height: 295
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
