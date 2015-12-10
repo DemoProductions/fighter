@@ -48,7 +48,7 @@ public class GameOver : MonoBehaviour
 			)
 		{
 			// Reload the level
-			Application.Quit ();
+			Application.LoadLevel ("menu");
 		}
 	}
 }
